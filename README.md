@@ -14,6 +14,12 @@ A 4-step flow for posting an event requirement (Event Planner, Performer or Crew
 
 Submitted requirements are stored in MongoDB tagged with their category, and can be browsed at `/requirements` (filterable by category) and `/requirements/:id`.
 
+## Architecture
+
+![Architecture: Next.js wizard on Vercel → Express API on Render → one categorized MongoDB collection on Atlas](docs/architecture.png)
+
+Black arrows are requests, the red dashed arrow is the validation-error path back to the wizard, and the grey dashed arrow is the keep-alive ping. The editable source is [`docs/architecture.excalidraw`](docs/architecture.excalidraw) (open it at [excalidraw.com](https://excalidraw.com)).
+
 ---
 
 ## Repo layout
@@ -21,8 +27,10 @@ Submitted requirements are stored in MongoDB tagged with their category, and can
 ```
 backend/    Express + TypeScript + Mongoose + Zod     → deployed on Render
 frontend/   Next.js 16 (App Router) + Tailwind + RHF   → deployed on Vercel
+docs/       architecture diagram (PNG + Excalidraw source)
 docker-compose.yml   local MongoDB
 render.yaml          Render blueprint for the API
+.github/workflows/   keep-alive ping for the free Render instance
 ```
 
 Two independently deployable apps in one repo; no shared package, to keep both builds simple.
