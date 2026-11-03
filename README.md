@@ -2,8 +2,8 @@
 
 A 4-step flow for posting an event requirement (Event Planner, Performer or Crew), built with **Next.js** on the frontend and **Node.js + Express + MongoDB** on the backend.
 
-- **Live app:** _<vercel-url>_
-- **API:** _<render-url>_/api/health
+- **Live app:** https://gopratle-requirement-flow-ecru.vercel.app
+- **API:** https://gopratle-requirements-api-6s9f.onrender.com/api/health (free Render tier — the first request after a while can take ~30–60s while it wakes up)
 
 | Step | What it collects |
 |---|---|
