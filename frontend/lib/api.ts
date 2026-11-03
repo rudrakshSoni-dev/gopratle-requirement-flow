@@ -67,4 +67,9 @@ export const api = {
   },
 
   getRequirement: (id: string) => request<{ data: Requirement }>(`/api/requirements/${encodeURIComponent(id)}`),
+
+  /** Fire-and-forget request that starts waking a sleeping Render instance. */
+  wakeUp: () => {
+    fetch(`${API_URL}/api/health`).catch(() => {});
+  },
 };

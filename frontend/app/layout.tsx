@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Link from "next/link";
+import { ServerWarmup } from "@/components/ServerWarmup";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -22,6 +23,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
       <body className="flex min-h-full flex-col font-sans">
+        <ServerWarmup />
         <header className="border-b border-zinc-200 bg-white">
           <div className="mx-auto flex h-14 max-w-4xl items-center justify-between px-4">
             <Link href="/" className="text-lg font-bold tracking-tight text-zinc-900">

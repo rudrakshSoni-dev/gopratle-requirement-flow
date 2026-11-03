@@ -142,7 +142,7 @@ The full UI flow was also tested by hand for all three categories: per-step erro
 - Number inputs left blank are reported as "Required" instead of `NaN` errors.
 - Crew role dropdowns disable roles already chosen in another row.
 - Double submits are blocked while a request is in flight.
-- Render's free tier sleeps when idle — requests that take over 3s show a "waking up the server" hint instead of looking frozen.
+- Render's free tier sleeps when idle. Every page pings `/api/health` on load so the server starts waking before the user needs it, a GitHub Actions workflow pings it every 10 minutes to keep it warm, and requests that still take over 3s show a "waking up the server" hint instead of looking frozen.
 
 ## Deployment
 
